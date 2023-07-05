@@ -3,11 +3,6 @@ import ExpenseDate from './ExpenseDate';
 
 function ExpenseItem(props) {
     console.log('props:', props)
-    /* - now stored in App.js -
-    const expenseDate = new Date(1969, 4, 20);
-    const expenseTitle = 'Car Insurance';
-    const expenseAmount = 294.50;
-    */
 
     //can only return one root element at a time
     return (

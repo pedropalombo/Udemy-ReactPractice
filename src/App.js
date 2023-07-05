@@ -40,11 +40,6 @@ function App() {
       <p>anatha won</p>
 
       {/* can't parse + show components (aka expenses.forEach()) for some reason */}
-      {/*<ExpenseItem expense={expenses[0]} />
-      <ExpenseItem expense={expenses[1]} />
-      <ExpenseItem expense={expenses[2]} />
-      <ExpenseItem expense={expenses[3]} />
-      */}
       <ExpenseRender expenses={expenses} />
     </div>
   );
