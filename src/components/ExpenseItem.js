@@ -1,12 +1,14 @@
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
+import Card from './Card';
 
 function ExpenseItem(props) {
     console.log('props:', props)
 
     //can only return one root element at a time
     return (
-        <div className="expense-item">
+        //using 'Card' instead of normal <div> for CSS recycling 
+        <Card className="expense-item">
             <ExpenseDate date={props.expense.date} />
 
             <div className='expense-item__description'>
@@ -14,10 +16,10 @@ function ExpenseItem(props) {
                     {props.expense.title}
                 </h2>
                 <div className='expense-item__price'>
-                    {props.expense.amount}
+                    R${props.expense.amount}
                 </div>
             </div>
-        </div>
+        </Card>
     );
 }
 
