@@ -1,7 +1,8 @@
-import ExpenseItem from "./components/ExpenseItem";
-import ExpenseRender from "./components/ExpenseRender";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
+import ExpenseRender from "./components/Expenses/ExpenseRender";
+import NewExpense from "./components/Expenses/InsertExpense/NewExpense";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: '1',
@@ -33,12 +34,17 @@ function App() {
       amount: 555.55,
       date: new Date(2005, 4, 5)
     },
-  ]
+  ];
+
+  //logger of NewExpense
+  const addExpenseHandler = (expense) => {
+    console.log('expense in App.js: ', expense);
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>anatha won</p>
-
+      <NewExpense onAddExpense={addExpenseHandler}/>
+      
       {/* can't parse + show components (aka expenses.forEach()) for some reason */}
       <ExpenseRender expenses={expenses} />
     </div>
