@@ -27,7 +27,7 @@ const ExpenseForm = (data) => {
 
     // -- Title --
     //'event' is set by default
-    const titleChangeHandler = (event) => {
+    /*const titleChangeHandler = (event) => {
         //console.log(event)
         //setInputTitle(event.target.value);
 
@@ -65,6 +65,43 @@ const ExpenseForm = (data) => {
                 date: event.target.value
             }   
         })
+    }*/
+
+    // -- Generic --
+    const inputChangeHandler = (type, value) => {
+        switch(type) {
+            case 'title':
+                setUserInput((prevState) => {
+                    return {
+                        ...prevState,
+                        title: value
+                    }
+        
+                });
+                break;
+            
+            case 'date':
+                setUserInput((prevState) => {
+                    return {
+                        ...prevState,
+                        date: value
+                    }   
+                });
+                break;
+
+            case 'amount':
+                setUserInput((prevState) => {
+                    return {
+                        ...prevState,
+                        amount: value
+                    }
+                });
+                break;
+
+            default:
+                console.log('Input not valid.');
+                break;
+        }
     }
     // -| / | -
 
@@ -94,21 +131,22 @@ const ExpenseForm = (data) => {
                     <label>
                         Title
                     </label>
-                    <input type="text" value={userInput.title} onChange={titleChangeHandler}/>
+                    {/* passing values to methods w/o insta-triggering them ==> arrow function */}
+                    <input type="text" value={userInput.title} onChange={(event) => inputChangeHandler('title', event.target.value)}/>
                 </div>
 
                 <div className="new-expense__control">
                     <label>
                         Amount
                     </label>
-                    <input type="number" value={userInput.amount} min="0.01" onChange={amountChangeHandler}/>
+                    <input type="number" value={userInput.amount} min="0.01" onChange={(event) => inputChangeHandler('amount', event.target.value)}/>
                 </div>
 
                 <div className="new-expense__control">
                     <label>
                         Date
                     </label>
-                    <input type="date" value={userInput.date} min="2000-01-01" max="2030-12-31" onChange={dateChangeHandler}/>
+                    <input type="date" value={userInput.date} min="2000-01-01" max="2030-12-31" onChange={(event) => inputChangeHandler('date', event.target.value)}/>
                 </div>
 
             </div>
