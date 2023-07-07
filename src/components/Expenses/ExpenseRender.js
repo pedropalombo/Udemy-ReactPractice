@@ -19,6 +19,20 @@ const ExpenseRender = (props) => {
         return expense.date.getFullYear().toString() === filterYear;
     })
 
+
+    //creating default element for when no expenses are found
+    let expensesContent = <p>Nothing good on this year, chief.</p>;
+
+    //checking if any expenses exist on selected year
+    if (filteredExpenses.length === 0) {
+        expensesContent = filteredExpenses.map((expense) => {
+            return <ExpenseItem
+                key={expense.id}
+                expense={expense}
+            />
+        })
+    }
+
     return (
         <div>
             {/* using 'Card' instead of normal <div> for CSS recycling*/}
@@ -26,16 +40,8 @@ const ExpenseRender = (props) => {
                 {/* sending default+chosen year to 'ExpensesFilter' component |-> two-way binding */}
                 <ExpensesFilter chosenYear={filterYear} onChangeFilter={(year) => { filterChangeHandler(year) }} />
 
-                {/* dynamically showing all expenses sent by App.js */}
-                {
-                    //adding 'key' parameter since, w/o it, 'map()' will update existing elements, instead of creating a new one
-                    filteredExpenses.map((expense) => {
-                        return <ExpenseItem
-                            key={expense.id}
-                            expense={expense} 
-                        />
-                    })
-                }
+                {/* dynamically showing all expenses that match the year chosen, otherwise shows text */}
+                {expensesContent}
             </Card>
         </div>
     );
