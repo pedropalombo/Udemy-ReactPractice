@@ -1,9 +1,14 @@
 import './ExpenseDate.css';
 
 const ExpenseDate = (props) => {
-    const day = props.date.toLocaleString('pt-BR', { day: '2-digit' });
-    const month = props.date.toLocaleString('pt-BR', { month: 'long' });
-    const year = props.date.getFullYear();
+    //changing 'Date' retrieval logic bc of a bug appeared after insertion logic was applied
+    const date = new Date(props.date);
+
+    const day = date.toLocaleString('en-US', { day: '2-digit' });
+    const month = date.toLocaleString('en-US', { month: 'long' });
+    const year = date.getFullYear();
+
+    //console.log(`Datas:\ndia:${typeof day}\nmes:${month}\nano:${year}`);
 
     return (
         <div className='expense-date'>
