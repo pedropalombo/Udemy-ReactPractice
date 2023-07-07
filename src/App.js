@@ -1,4 +1,3 @@
-import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseRender from "./components/Expenses/ExpenseRender";
 import NewExpense from "./components/Expenses/InsertExpense/NewExpense";
 

@@ -2,9 +2,6 @@ import React from 'react';
 
 import './ExpensesFilter.css';
 
-//imported from Max's github:
-// https://github.com/academind/react-complete-guide-code/blob/04-react-state-events/extra-files/ExpensesFilter.js
-
 //props: ExpenseRender <-> ExpensesFilter
 const ExpensesFilter = (props) => {
 

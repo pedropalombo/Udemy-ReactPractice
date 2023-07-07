@@ -6,12 +6,6 @@ import './ExpenseForm.css';
 const ExpenseForm = (data) => {
 
     // -| States |-
-    
-    /* \ standard multi-line way /
-    const [inputTitle, setInputTitle] = useState('');
-    const [inputAmount, setInputAmount] = useState(0);
-    const [inputDate, setInputDate] = useState('');
-    */
 
     // \ object-oriented way (good for forms) /
     const [userInput, setUserInput] = useState(
@@ -24,48 +18,6 @@ const ExpenseForm = (data) => {
     
 
     //- | Sets |-
-
-    // -- Title --
-    //'event' is set by default
-    /*const titleChangeHandler = (event) => {
-        //console.log(event)
-        //setInputTitle(event.target.value);
-
-        //using '...'(spread) operator so the values already in it aren't lost
-        setUserInput((prevState) => {
-            
-            //setting states with the previous amount, and override the one that changed
-            return {
-                ...prevState,
-                title: event.target.value
-            }
-
-        })
-    }
-
-    // -- Amount --
-    const amountChangeHandler = (event) => {
-        //setInputAmount(event.target.value);
-
-        setUserInput((prevState) => {
-            return {
-                ...prevState,
-                amount: event.target.value
-            }
-        })
-    }
-
-    // -- Date --
-    const dateChangeHandler = (event) => {
-        //setInputDate(event.target.value);
-
-        setUserInput((prevState) => {
-            return {
-                ...prevState,
-                date: event.target.value
-            }   
-        })
-    }*/
 
     // -- Generic --
     const inputChangeHandler = (type, value) => {
