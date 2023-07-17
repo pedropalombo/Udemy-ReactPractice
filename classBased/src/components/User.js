@@ -11,9 +11,4 @@ class User extends Component{
   
 }
 
-/* --| function-based component |--
-const User = (props) => {
-  return <li className={classes.user}>{props.name}</li>;
-};*/
-
 export default User;

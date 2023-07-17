@@ -17,7 +17,6 @@ function App() {
   return (
     <div className='app'>
 
-      {/*<DemoList title={listTitle} items={[5, 3, 1, 10, 9]} />*/}
       <DemoList title={listTitle} items={listItems} />
 
       <Button onClick={changeTitleHandler}>Change List Title</Button>

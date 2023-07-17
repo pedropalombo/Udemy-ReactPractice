@@ -4,8 +4,6 @@ import classes from './DemoList.module.css';
 
 const DemoList = (props) => {
   const { items } = props; //getting only 'props.items'
-
-  //const sortedList = props.items.sort((a, b) => a - b);
   
   //same as useCallback(), in but for data
   //OBS: explained in '01-starting-setup/src/App.js'

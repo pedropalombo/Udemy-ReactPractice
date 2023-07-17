@@ -46,19 +46,6 @@ function App() {
       }
       setMovies(loadedMovies); //setting 'movies''s state
 
-      // PS: static API usage
-      /*const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
-        };
-      });*/
-      //setMovies(transformedMovies);
-
-      //console.log('movies retrieved: ', loadedMovies);
-
     //in case of error
     } catch (error) {
       setError(error.message);  //sets 'error''s state

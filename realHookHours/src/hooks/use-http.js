@@ -29,15 +29,6 @@ const useHttp = () => {
             //using Custom Hooks
             applyData(data);
 
-            //getting tasks from request & populating an array with such
-            // \-> non-custom hook way
-            /*const loadedTasks = [];
-
-            for (const taskKey in data) {
-                loadedTasks.push({ id: taskKey, text: data[taskKey].text });
-            }
-
-            setTasks(loadedTasks);*/
         } catch (err) {
             setError(err.message || 'Something went wrong!');
         }
