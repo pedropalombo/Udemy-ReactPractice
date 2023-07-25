@@ -1,21 +1,14 @@
-import React from 'react'; //{ useContext }
-//import { useSelector } from 'react-redux';
+import React from 'react';
 
 import ProductItem from '../components/Products/ProductItem';
 import './Products.css';
-//import { ProductsContext } from '../context/products-context';
 import { useStore } from '../hooks-store/store';
 
 const Products = props => {
-  //getting products from Context
-  //const productList = useContext(ProductsContext).products;
-
   //getting state from generic actions
   // \-> OBS: [0] => globalState | [1] => dispatch 
   const state = useStore()[0];
   
-  
-  //const productList = useSelector(state => state.shop.products);
   return (
     <ul className="products-list">
       {state.products.map(prod => (

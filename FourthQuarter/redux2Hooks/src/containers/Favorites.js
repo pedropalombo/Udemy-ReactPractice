@@ -1,23 +1,10 @@
-import React from 'react'; //{ useContext }
-//import { useSelector } from 'react-redux';
+import React from 'react';
 
 import FavoriteItem from '../components/Favorites/FavoriteItem';
 import './Products.css';
-//import { ProductsContext } from '../context/products-context';
 import { useStore } from '../hooks-store/store';
 
 const Favorites = props => {
-  /* //redux-based 
-  const favoriteProducts = useSelector(state =>
-    state.shop.products.filter(p => p.isFavorite)
-  );
-  
-  //context-based
-  const favouriteProducts = useContext(ProductsContext).products(
-    product => 
-      product.isFavorite
-  );
-  */
 
   //getting only globalState from store.js
   // \-> OBS: [0] => globalState | [1] => dispatch/payload

@@ -1,25 +1,16 @@
-import React from 'react'; // { useContext }
-//import { useDispatch } from 'react-redux';
+import React from 'react';
 
 import Card from '../UI/Card';
 import './ProductItem.css';
 import { useStore } from '../../hooks-store/store';
-//import { ProductsContext } from '../../context/products-context';
-//import { toggleFav } from '../../store/actions/products'; //exported to products-context.js
+
 
 const ProductItem = props => {
-  //const dispatch = useDispatch();
-
-  //const toggleFav = useContext(ProductsContext).toggleFav;  //using Context for favourite products
-
   //only getting payload from store
   // [0] => globalState | [1] => dispatch
   const dispatch = useStore(false)[1];  //shouldListen == false => doesn't re-render all DOM components
 
-  const toggleFavHandler = () => {
-    //dispatch(toggleFav(props.id));
-    //toggleFav(props.id);  //toggling product's 'favourite' status based on products ID (Context way)
-    
+  const toggleFavHandler = () => {  
     //triggering 'TOGGLE_FAV' action set on products-store.js, together with the product's ID
     dispatch('TOGGLE_FAV', props.id);
   

@@ -6,6 +6,7 @@ export const ProductsContext = React.createContext({
     toggleFav: (id) => {}
 });
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
     //copied from ./reducers/products.js
     const [productsList, setProductsList] = useState([
