@@ -1,0 +1,80 @@
+.Modal {
+    position: fixed;
+    z-index: 200;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+
+    /* //hardcoded way
+    transition: all 300ms ease-out;
+    */
+}
+
+/* setting modal status */
+.ModalOpen {
+    /* //hardcoded way
+    opacity: 1;
+    transform: translateY(0); /*going top-centre*/
+
+    /* keyframes way */
+    /* PS: animation: keyframes | timming | style | state 
+       => forwards == don't loop after final frame*/
+    animation: openModal 0.4s ease-out forwards;
+}
+
+.ModalClosed {
+    /* //hardcoded way
+    opacity: 0;
+    transform: translateY(-100%); /*goes centre-top*/
+
+    /* keyframes way*/
+    animation: closeModal 0.4 ease-out forwards;
+}
+/* -| / |- */
+
+/* keyframes for modal interaction */
+/* -| opening modal |-*/
+@keyframes openModal {
+    /* setting the stages of the animation */
+    0% {
+        opacity: 0; /* invisible */
+    transform: translateY(-100%); /*comes from the top*/
+    }
+
+    50% {
+        opacity: 1; /* appears */
+        transform: translateY(90%); /*goes top-centre*/
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%); /*reaches centre*/
+    }
+}
+
+/* -| closing modal |-*/
+@keyframes closeModal {
+    /* setting the stages of the animation */
+    0% {
+        opacity: 1; /* visible */
+        transform: translateY(0); /*is centred*/
+    }
+
+    50% {
+        opacity: 0.8; /* starts fading */
+        transform: translateY(60%); /*starts going centre-top*/
+    }
+
+
+    100% {
+        opacity: 0; /* vanishes */
+        transform: translateY(-100%); /*reaches centre*/
+    }
+}
