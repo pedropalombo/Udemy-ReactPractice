@@ -6,10 +6,73 @@
 import { it, expect } from "vitest";
 import { add } from './math';
 
-//text explanation for the following tests
+//it() ==> text explanation for the following tests
 // \-> tester('test definition', funtionToBeTested());
-it('should add all number values of an array', () => {
-  const result = add([1, 2, 3]);
+
+// -| "positive" results |-
+//adding standard numbers
+it('should add all number values in an array', () => {
   
-  expect(result).toBe(6); //toBe() ==> result expected of the function called
+  //Triple A Method
+  
+  //Arrange
+  const numbers = [1, 2, 3];
+
+  //Act
+  const result = add(numbers);
+  
+  //Assert (Expectations)
+  //expect(result).toBe(6); //toBe() ==> result expected of the function called
+  
+  //reduce() ==> applies method to every element on the given array
+  // \-> OBS: '0' is the initialValue
+  const expectedResult = numbers.reduce((previousValue, curValue) =>
+    previousValue + curValue, 0
+  );
+
+  expect(result).toBe(expectedResult);
+
 });
+
+//adding string numbers
+it('should display the correct sum if an array of numeric string values is provided', () => {
+  const inputs = ['1', '2', '3'];
+
+  const result = add(inputs);
+
+  const expectedResult = inputs.reduce((previousValue, curValue) =>
+    parseInt(previousValue) + parseInt(curValue), 0
+  );
+
+  expect(result).toBe(expectedResult);
+});
+
+//shows '0' on empty array input
+it('returns 0 if an empty array is provided', () => {
+  const numbers = [];
+
+  const result = add(numbers);
+
+  expect(result).toBe(0);
+});
+
+//"negative" results | Bugs
+//returning 'NaN'
+it('should show "NaN" if at least one invalid number is provided', () => {
+  const inputs = ['invalid', 1];
+
+  const result = add(inputs);
+
+  expect(result).toBeNaN()
+});
+
+//error throwing in case of null values
+it('should throw an error on null value is passed into the function', () => {
+  //only triggers 'add()' when 'resultFunction' is called
+  const resultFunction = () => {
+    add();
+  };
+
+  //expecting to throw an error when 'add()' is triggered with null values
+  expect(resultFunction).toThrow();
+})
