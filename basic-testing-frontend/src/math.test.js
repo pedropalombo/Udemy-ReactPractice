@@ -75,4 +75,18 @@ it('should throw an error on null value is passed into the function', () => {
 
   //expecting to throw an error when 'add()' is triggered with null values
   expect(resultFunction).toThrow();
+});
+
+//error throwing in case of multiple values on the same input
+it('should throw an error on multiple values aare passed instead of an array', () => {
+  const var1 = 1;
+  const var2 = 2;
+  
+  //only triggers 'add()' when 'resultFunction' is called
+  const resultFunction = () => {
+    add(var1, var2);
+  };
+
+  //expecting to throw an error when 'add()' is triggered with null values
+  expect(resultFunction).toThrow();
 })
