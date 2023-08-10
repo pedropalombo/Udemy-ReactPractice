@@ -5,3 +5,11 @@ export function extractNumbers(formData) {
   return [num1Input, num2Input];
 }
 
+//extracted from 'App.js'
+//gets info from Forms
+export function extractInput(form) {
+  const formData = new FormData(form);
+  const numberInputs = extractNumbers(formData);
+
+  return numberInputs;
+}
